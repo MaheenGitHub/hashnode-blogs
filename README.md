@@ -1,6 +1,6 @@
 # Maheen's Hashnode Blogs Backup
 
-This repository contains **backups of all my blog articles** from [Maheen's Hacking Diary](https://my-hacking-diary.hashnode.dev) on Hashnode.  
+This repository contains **backups of all my blog articles** on Hashnode.  
 It is used to **store and version-control my technical writing**, covering topics in cybersecurity, AI security, prompt engineering, and ethical hacking.
 
 ---
