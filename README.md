@@ -1,7 +1,7 @@
 # Maheen's Hashnode Blogs Backup
 
 This repository contains **backups of all my blog articles** on Hashnode.  
-It is used to **store and version-control my technical writing**, covering topics in cybersecurity, AI security, prompt engineering, and ethical hacking.
+It is used to **store and version-control my technical writing**, covering topics in cybersecurity, AI security and machine learning .
 
 ---
 
@@ -25,7 +25,7 @@ It is used to **store and version-control my technical writing**, covering topic
 ## About Me
 
 I’m **Maheen Fatima**, a BSIT student at PUCIT, former Software Engineer Intern at Spacebar, and Teaching Assistant at PUCIT.  
-I write about **cybersecurity, AI security, and hands-on IT learning**.
+I write about **cybersecurity, machine learning , and hands-on IT learning**.
 
 - 🔗 LinkedIn: [https://www.linkedin.com/in/maheenfatimaa/](https://www.linkedin.com/in/maheenfatimaa/)  
 - 💻 GitHub: [https://github.com/MaheenGitHub](https://github.com/MaheenGitHub)
