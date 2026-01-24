@@ -165,10 +165,6 @@ I’m looking to **expand this work beyond the classroom** and transition it int
 
 I’m Maheen Fatima, a BSIT student at PUCIT with experience as a Software Engineer Intern at Spacebar and a Teaching Assistant at PUCIT. I’m passionate about Machine Learning, AI, and turning real-world data into practical solutions. I document my learning journey through technical writing and projects, and I’m open to freelance opportunities and collaborations in AI, ML, and IoT.
 
-🔗 **Connect with me on LinkedIn:** [**https://www.linkedin.com/in/maheenfatimaa/**](https://www.linkedin.com/in/maheenfatimaa/)
-
-💻 **GitHub:** [**https://github.com/MaheenGitHub**](https://github.com/MaheenGitHub)
-
-🌐 **Upwork:** [**https://www.upwork.com/freelancers/~017a150168182cf524?mp\_source=share**](https://www.upwork.com/freelancers/~017a150168182cf524?mp_source=share)
+🔗 **Connect with me on** [**LinkedIn**](https://www.linkedin.com/in/maheenfatimaa/) **,** [**GitHub**](https://github.com/MaheenGitHub) **or** [**Upwork**](https://www.upwork.com/freelancers/~017a150168182cf524?mp_source=share)
 
 *<mark>If you're working on similar Motion Intelligence projects or need an end-to-end HAR pipeline for your product, let's connect!</mark>*
