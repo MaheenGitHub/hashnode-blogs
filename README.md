@@ -1,7 +1,6 @@
 # Maheen's Hashnode Blogs Backup
 
 ![Hashnode](https://img.shields.io/badge/Hashnode-Blog-blue?logo=hashnode)
-![Markdown](https://img.shields.io/badge/Writing-Markdown-black?logo=markdown)
 ![Cybersecurity](https://img.shields.io/badge/Focus-Cybersecurity-red)
 ![Machine Learning](https://img.shields.io/badge/Focus-Machine%20Learning-orange)
 ![Open to Collaborate](https://img.shields.io/badge/Open%20to-Collaborations-blue)
@@ -12,7 +11,7 @@ Rather than just being an archive, this repository reflects my technical learnin
 
 ---
 
-## 🌐 My Active Hashnode Blogs
+## My Active Hashnode Blogs
 
 I currently maintain two focused technical blogs on Hashnode:
 
@@ -28,7 +27,7 @@ An AI and Machine Learning–focused blog featuring applied ML projects, deep le
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 
 Each blog post is stored as a Markdown (.md) file. Files are automatically generated and synced via the Hashnode–GitHub integration.
 
@@ -40,7 +39,7 @@ This structure ensures traceability between published articles and their source 
 
 ---
 
-## 🔄 Backup & Sync Information
+## Backup & Sync Information
 
 This repository is automatically synced with Hashnode. It serves as a personal writing archive, revision history for long-form technical articles, and a safeguard against accidental content loss.
 
