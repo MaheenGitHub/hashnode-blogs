@@ -1,6 +1,6 @@
 ---
 title: "Human Activity Recognition with Machine Learning"
-seoTitle: "Human Activity Recognition with Machine Learning: From Sensor Data to "
+seoTitle: "Human Activity Recognition with Machine Learning: From Sensor Data to"
 seoDescription: "A hands-on journey into Human Activity Recognition using accelerometer and gyroscope data. This project explores classical ML, DNNs, and LSTM models, achiev"
 datePublished: Thu Jan 22 2026 23:47:06 GMT+0000 (Coordinated Universal Time)
 cuid: cmkq3pxmm000102i8di5b0xjt
@@ -14,7 +14,7 @@ tags: data-science, machine-learning, deep-learning, time-series, lstm, ai-proje
 
 Every day, our smartphones capture a silent symphony of data through accelerometers and gyroscopes. This data is the key to unlocking innovations in **elderly healthcare (fall detection)**, **industrial ergonomics**, and **personalized fitness**. In this project, I transformed raw, noisy sensor data into a high-precision activity classifier. This journey covers the transition from handcrafted features to automated temporal learning, providing a robust foundation for my upcoming framework, **KineticSense AI**
 
-### **🔑 Key Takeaways**
+### **Key Takeaways 🔑**
 
 Key engineering and modeling insights gained from this end-to-end HAR project.
 
@@ -59,7 +59,7 @@ Before feeding data into the models, I performed a distribution analysis to ensu
 
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1769121330697/959e5810-b4de-4c64-bfad-bedc4347cce4.png align="center")
 
-> *Figure 1: Distribution of activity samples and subject contributions, confirming a balanced dataset for training.*
+*Figure 1: Distribution of activity samples and subject contributions, confirming a balanced dataset for training.*
 
 ## **2\. The Baseline: High-Precision Classical ML**
 
@@ -74,7 +74,7 @@ The **Support Vector Machine (SVM)** emerged as the champion, hitting a staggeri
 
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1769121734771/264e0413-3a53-4eb8-96c9-b6a410167eff.png align="center")
 
-> Figure 2: *The SVM Confusion Matrix. Notice the near-perfect diagonal density, with the only slight confusion occurring between the orientationally similar 'Sitting' and 'Standing'.*
+*Figure 2: The SVM Confusion Matrix. Notice the near-perfect diagonal density, with the only slight confusion occurring between the orientationally similar 'Sitting' and 'Standing'.*
 
 ## **3\. The Deep Learning Leap: From Features to Representations**
 
@@ -93,7 +93,7 @@ To ensure the model didn't just "memorize" the training subjects, I implemented:
 
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1769121821059/e6b43c6e-389b-4539-940f-a2b5caf3bd15.png align="center")
 
-> Figure 3: *Training curves showing smooth convergence. The minimal gap between training and validation loss confirms a well-regularized model.*
+*Figure 3: Training curves showing smooth convergence. The minimal gap between training and validation loss confirms a well-regularized model.*
 
 ## **4\. The Sequence Masterclass: Solving for Time**
 
@@ -115,7 +115,7 @@ While the Simple RNN struggles with vanishing gradients in complex movements, th
 
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1769122547957/348880eb-fc1e-40db-8ef5-905d6da691be.png align="center")
 
-> *Figure 4: Comparative Confusion Matrices for RNN, GRU, and LSTM.*
+*Figure 4: Comparative Confusion Matrices for RNN, GRU, and LSTM.*
 
 ## What Didn’t Work (And Why) ⚠️
 
@@ -148,7 +148,7 @@ This foundation is now being transitioned into **KineticSense AI**, where I will
 2. **Real-time Dashboards:** Building a live visualization bridge using Streamlit.
     
 
-> [Github Repo](https://github.com/MaheenGitHub/human-activity-recognition-ML)
+> [Explore the Full Code on GitHub](https://github.com/MaheenGitHub/human-activity-recognition-ML)
 
 ## **Open for Collaboration** 🤝
 
@@ -160,8 +160,6 @@ I’m looking to **expand this work beyond the classroom** and transition it int
     
 * **Data Expansion:** Collecting or integrating additional real-world sensor datasets
     
-
-Even if the repository is currently private, I welcome **collaboration or mentorship opportunities**.
 
 ## **👩‍💻 About Me**
 
