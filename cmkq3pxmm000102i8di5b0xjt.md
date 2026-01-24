@@ -14,15 +14,15 @@ tags: data-science, machine-learning, deep-learning, time-series, lstm, ai-proje
 
 Every day, our smartphones capture a silent symphony of data through accelerometers and gyroscopes. This data is the key to unlocking innovations in **elderly healthcare (fall detection)**, **industrial ergonomics**, and **personalized fitness**. In this project, I transformed raw, noisy sensor data into a high-precision activity classifier. This journey covers the transition from handcrafted features to automated temporal learning, providing a robust foundation for my upcoming framework, **KineticSense AI**
 
-### **Key Takeaways 🔑**
+### **Key Takeaways**
 
 Key engineering and modeling insights gained from this end-to-end HAR project.
 
-* **Classical ML Wins on Efficiency:** SVM achieved the highest accuracy (**96%**) using handcrafted features.
+* **Classical ML Wins on Efficiency:** SVM achieved the highest accuracy (**<mark>96%</mark>**) using handcrafted features.
     
 * **Temporal Intelligence:** LSTMs solved the **Vanishing Gradient** problem, making them superior for raw signal streaming.
     
-* **Edge Optimized:** Achieved a sub-**0.5ms inference latency**, proving real-world readiness for wearables.
+* **Edge Optimized:** Achieved a sub-**<mark>0.5ms</mark> inference latency**, proving real-world readiness for wearables.
     
 * **The GRU Advantage:** GRUs offered the best accuracy-to-latency tradeoff for low-power deployment.
     
