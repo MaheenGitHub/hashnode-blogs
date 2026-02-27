@@ -10,11 +10,11 @@ Before exploitation, before defense strategies, before patching — there is dis
 
 And that discovery begins with understanding network exposure.
 
-This curiosity led me to discover **<mark class="bg-yellow-200 dark:bg-yellow-500/30">Nmap (Network Mapper)</mark>** — one of the most powerful and widely used tools in cybersecurity.
+This curiosity led me to discover **<mark class="bg-yellow-200 dark:bg-yellow-500/30">Nmap (Network Mapper)</mark>** : one of the most powerful and widely used tools in cybersecurity.
 
 To learn it properly, I followed a structured hands-on lab from LabEx, which guided me step-by-step through installing Nmap, running scans, and understanding how open ports and services can be discovered.
 
-This article documents my learning journey — not just the commands, but the reasoning, observations, and insights I gained along the way.
+This article documents my learning journey , not just the commands, but the reasoning, observations, and insights I gained along the way.
 
 ## What is Nmap, and Why is it Important?
 
