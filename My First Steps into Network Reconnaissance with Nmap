@@ -1,0 +1,401 @@
+## Introduction: Where Curiosity Meets Cybersecurity
+
+> What does a hacker see when they look at your system?  
+> Not your desktop. Not your files.  
+> Your open ports.
+
+After completing the Gandalf AI Security Challenge, I wanted to move beyond AI security and explore the foundation of every cybersecurity assessment: reconnaissance.
+
+Before exploitation, before defense strategies, before patching — there is discovery.
+
+And that discovery begins with understanding network exposure.
+
+This curiosity led me to discover **<mark class="bg-yellow-200 dark:bg-yellow-500/30">Nmap (Network Mapper)</mark>** — one of the most powerful and widely used tools in cybersecurity.
+
+To learn it properly, I followed a structured hands-on lab from LabEx, which guided me step-by-step through installing Nmap, running scans, and understanding how open ports and services can be discovered.
+
+This article documents my learning journey — not just the commands, but the reasoning, observations, and insights I gained along the way.
+
+## What is Nmap, and Why is it Important?
+
+Before using any tool, I wanted to understand its purpose.
+
+In cybersecurity, understanding your network is the first step toward securing it. Before protecting systems, you need visibility into what devices are running, which services are active, and which ports are exposed.
+
+This is where **Nmap (Network Mapper)** becomes essential.
+
+> Nmap was created by Gordon Lyon (known as Fyodor) and has been a core tool in security testing for decades.
+
+It is a tool used to discover devices, open ports, and services running on a system.
+
+In simple terms, it answers critical questions like:
+
+*   What devices are present on a network?
+    
+*   Which ports are open?
+    
+*   What services are running?
+    
+*   What might be vulnerable?
+    
+
+This information is essential in both:
+
+*   **<mark class="bg-yellow-200 dark:bg-yellow-500/30">Defensive security</mark>** (to identify and secure exposed services)
+    
+*   **<mark class="bg-yellow-200 dark:bg-yellow-500/30">Offensive security</mark>** (to discover entry points during penetration testing)
+    
+
+Almost every cybersecurity professional — from SOC analysts to ethical hackers — uses Nmap.
+
+Learning Nmap felt like learning the language of network discovery.
+
+## Setting Up My Learning Environment with LabEx
+
+To begin, I used the LabEx platform, which provides an interactive environment to safely practice cybersecurity tools.
+
+This allowed me to experiment freely without affecting my actual system.
+
+![](https://cloudmate-test.s3.us-east-1.amazonaws.com/uploads/covers/6967e09a8e420016a8b8a757/337ecfbb-234e-4d3c-ac48-0fa38b7f75b6.png align="center")
+
+***(Figure 1 : LabEx platform interface)***
+
+The platform provides:
+
+*   Pre-configured Linux lab environments
+    
+*   Step-by-step guided exercises
+    
+*   Real-world cybersecurity scenarios
+    
+*   Hands-on practice with tools like Nmap, Linux commands, and networking utilities
+    
+
+Unlike traditional tutorials, LabEx allows learners to execute commands themselves, observe real outputs, and develop practical skills.
+
+For this exercise, I used the LabEx "Nmap Installation and Basic Usage" lab to learn how network scanning works in a controlled environment.
+
+### Accessing the Lab Environment
+
+After signing into LabEx, I launched the Nmap lab environment, which opened a Linux terminal in the browser.
+
+![](https://cloudmate-test.s3.us-east-1.amazonaws.com/uploads/covers/6967e09a8e420016a8b8a757/b5ae5dcd-e636-4083-88ef-d8790109351a.png align="center")
+
+***(Figure 2: LabEx terminal opening)***
+
+> Before I could scan anything, I first needed to install Nmap in my lab environment.
+
+## Installing My First Cybersecurity Tool: Nmap
+
+Installing Nmap on Ubuntu is straightforward because it is available in the default repositories.
+
+### Step 1: Update package list
+
+`sudo apt update`
+
+This command updates the system's package list to ensure you install the latest version.
+
+### Step 2: Install Nmap
+
+`sudo apt install nmap -y`
+
+Explanation:
+
+*   `sudo` → runs command with administrative privileges
+    
+*   `apt install` → installs software
+    
+*   `-y` → automatically confirms installation
+    
+
+### Step 3: Verify installation
+
+Before running any scans, I needed to confirm whether Nmap was available in the system.
+
+### `nmap --version`
+
+This command checks whether Nmap is installed and shows its version.
+
+Expected output:
+
+`Nmap version 7.80 Platform: x86_64-pc-linux-gnu`
+
+When I executed it, the system displayed the installed version details.
+
+![](https://cloudmate-test.s3.us-east-1.amazonaws.com/uploads/covers/6967e09a8e420016a8b8a757/8ccb7999-3a04-4532-a86a-31d7ffa45794.png align="center")
+
+***(Figure 3: Nmap Version Output)***
+
+This confirmed two important things:
+
+*   Nmap was successfully installed
+    
+*   The system was ready for scanning
+    
+
+This step might seem small, but in cybersecurity, verifying your tools is always the first step.
+
+You cannot rely on tools unless you confirm they are working correctly.
+
+## My First Target: Localhost
+
+Before scanning external systems, I started with the safest possible target: my own machine.
+
+In networking, this is called `localhost` . Localhost refers to the system itself. This allowed me to safely observe how Nmap detects services without scanning external networks.
+
+This was important because cybersecurity learning should always start in a controlled and ethical environment.
+
+### Step 1: Create a directory
+
+First, I created a directory to host my web content:
+
+`mkdir -p ~/project/http-server cd ~/project/http-server`
+
+This directory would act as the root of my local web server.
+
+### Step 2: Create a simple webpage
+
+Next, I created a simple HTML file:
+
+`echo "<html><body><h1>Welcome to the Nmap Lab</h1></body></html>" > index.html`
+
+This creates a basic HTML file.
+
+### Step 3: Start a local HTTP server
+
+`python3 -m http.server 8000`
+
+This starts a web server on port **8000**.
+
+### Step 4: Verify server is running
+
+Open another terminal and run:
+
+`curl http://localhost:8000`
+
+If working correctly, you will see:
+
+![](https://cloudmate-test.s3.us-east-1.amazonaws.com/uploads/covers/6967e09a8e420016a8b8a757/d7ab11e4-76a6-49e8-9a6e-4e12066ce137.png align="center")
+
+## Basic Nmap Scan
+
+Now we perform our first scan.
+
+`nmap -sT -p 8000 localhost`
+
+Let's break down this command:
+
+*   `-sT` is an option that specifies a TCP connect scan. This tells Nmap to use the TCP connect method to check the status of the ports.
+    
+*   `-p 8000` indicates that we want Nmap to scan only port 8000. You can change this number to scan other ports if needed.
+    
+*   `localhost` is the target of our scan. It refers to the local machine where the service is running.
+    
+
+Output example:
+
+`PORT STATE SERVICE 8000/tcp open http-alt`
+
+This means:
+
+*   Port 8000 is open
+    
+*   A web service is running
+    
+
+> While I used TCP connect scan (-sT) in this lab environment, I learned that in real penetration testing scenarios, stealth SYN scans (-sS) are often preferred because they are less detectable.
+
+**Technical Depth :**
+
+A <mark class="bg-yellow-200 dark:bg-yellow-500/30">TCP connect scan (-sT)</mark> completes the full three-way handshake (SYN → SYN/ACK → ACK) before closing the connection.  
+In contrast, a <mark class="bg-yellow-200 dark:bg-yellow-500/30">SYN scan (-sS) </mark> sends only the initial SYN packet and analyzes the response, making it faster and often less detectable.  
+Understanding this difference helped me realize that scanning is not just about commands — it’s about how TCP/IP communication actually works under the hood.
+
+## Service Version Detection
+
+Sometimes, just knowing that a port is open isn't enough. We might want to know more about the service running on that port, such as its version.
+
+To identify service details:
+
+`nmap -sV -p 8000 localhost`
+
+The `-sV` option is used to tell Nmap to probe open ports to determine service/version information. This means Nmap will try to figure out what specific software and version is running on the open port.
+
+Output:
+
+`PORT STATE SERVICE VERSION 8000/tcp open http SimpleHTTPServer 0.6`
+
+This reveals:
+
+*   Service type
+    
+*   Software name
+    
+*   Version information
+    
+
+This is extremely useful in vulnerability assessment.
+
+## Running My First Nmap Scan
+
+### Scan common 1000 ports
+
+Now came the most exciting part — performing my first scan.
+
+I ran:
+
+`nmap localhost`
+
+This command instructed Nmap to scan my own system and identify open ports.
+
+When the scan completed, Nmap displayed a list of ports and their states.
+
+Each line revealed something important:
+
+*   Port number
+    
+*   Whether it was open, closed, or filtered
+    
+*   The service associated with the port
+    
+
+This was fascinating.
+
+Even though my system looked quiet on the surface, Nmap was able to see deeper into its network behavior.
+
+It revealed the hidden communication points of the system.
+
+This is exactly how cybersecurity professionals discover exposed services.
+
+### Scan all ports
+
+`nmap -p- localhost`
+
+This scans all **65535 ports**, providing complete visibility.
+
+### Scan specific port range
+
+`nmap -p 1-1000 localhost`
+
+Useful when focusing on specific services.
+
+![](https://cloudmate-test.s3.us-east-1.amazonaws.com/uploads/covers/6967e09a8e420016a8b8a757/28064ba5-1cb9-4fc8-a75d-17b0f064244b.png align="center")
+
+***(Figure 4 : Scanning Ports)***
+
+## Saving Scan Results
+
+Documentation is important in cybersecurity. Nmap allows saving results.
+
+### Save in normal format
+
+`nmap -oN normal_output.txt localhost`
+
+Human-readable format.
+
+### Save in XML format
+
+`nmap -oX xml_output.xml localhost`
+
+Useful for automation and tools.
+
+### Save in grepable format
+
+`nmap -oG grepable_output.txt localhost`
+
+Useful for filtering specific information.
+
+![](https://cloudmate-test.s3.us-east-1.amazonaws.com/uploads/covers/6967e09a8e420016a8b8a757/527f9af0-0dbe-4570-a46a-8cea1137f800.png align="center")
+
+***(Figure 5: Saving..)***
+
+## What Open Ports Really Mean
+
+At first, seeing open ports might seem technical — but the concept is simple.
+
+<mark class="bg-yellow-200 dark:bg-yellow-500/30">A port is like a door.</mark>
+
+If a port is open, it means something is listening behind that door.
+
+This could be:
+
+*   A web server
+    
+*   A database
+    
+*   An SSH service
+    
+*   Or another application
+    
+
+Open ports are necessary for communication. But they also represent potential entry points.
+
+This is why attackers scan systems — and why defenders must monitor their systems.
+
+This experience made one thing clear: reconnaissance is the foundation of both attack and defense. You cannot secure what you cannot see. 👀
+
+In real-world breaches, attackers rarely begin with advanced exploits. They begin with scanning , identifying exposed services, misconfigured ports, and forgotten systems.
+
+## Observing How Nmap Interacts with Systems
+
+As I ran multiple scans, I began to notice something important:
+
+Nmap doesn’t just randomly guess.
+
+It actively communicates with the target system and analyzes responses.
+
+Based on these responses, it determines:
+
+*   Which ports exist
+    
+*   Which are open
+    
+*   Which services are running
+    
+
+This process happens silently and quickly.
+
+This is why Nmap is such a powerful reconnaissance tool.
+
+It transforms invisible network behavior into visible, understandable information.
+
+## Key Lessons I Learned from This Experience
+
+This hands-on experience taught me more than just commands.
+
+It helped me understand core cybersecurity concepts:
+
+*   Systems expose services through ports
+    
+*   These ports can be discovered through scanning
+    
+*   Attackers and defenders both use reconnaissance tools
+    
+*   Visibility into network behavior is essential for security
+    
+
+> ⚠️ Note: Always scan systems you own or have explicit permission to test.
+
+## Conclusion: My Journey Has Just Begun
+
+Learning Nmap gave me my first real insight into network reconnaissance.
+
+It showed me how systems communicate, how services are exposed, and how security professionals analyze networks.
+
+This was just the beginning. There is much more to explore — advanced scanning techniques, service detection, vulnerability assessment, and defensive monitoring. But this experience gave me a strong foundation.
+
+![](https://cloudmate-test.s3.us-east-1.amazonaws.com/uploads/covers/6967e09a8e420016a8b8a757/393aaf1f-78f0-4fb7-a331-10e18b5b916d.png align="center")
+
+Each step forward makes cybersecurity feel less mysterious — and more understandable.
+
+## About My Learning Source
+
+This hands-on learning was completed through the LabEx interactive lab environment, which provides structured, practical exercises for cybersecurity tools.
+
+> The "[Learn Nmap Installation and Basic Usage](https://labex.io/labs/nmap-learn-nmap-installation-and-basic-usage-415924?course=nmap-for-beginners)" lab on LabEx made it easier to learn through direct experimentation rather than theory alone.
+
+## 👩‍💻 About Me
+
+I’m Maheen Fatima, a BS Information Technology student at PUCIT and a cybersecurity enthusiast. I enjoy exploring security tools, understanding system behavior, and documenting my learning journey through hands-on practice and technical writing.
+
+🔗 Connect with me : [LinkedIn](https://www.linkedin.com/in/maheenfatimaa/) , [Github](https://github.com/MaheenGitHub) , [Upwork](https://www.upwork.com/freelancers/~017a150168182cf524?mp_source=share)
